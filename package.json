@@ -1,7 +1,7 @@
 {
   "name": "sommerlan",
   "license": "MIT",
-  "version": "1.0",
+  "version": "1.0.0",
   "scripts": {
     "build": "elm-app build",
     "start": "elm-app start"
