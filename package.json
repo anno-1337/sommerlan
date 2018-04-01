@@ -1,5 +1,15 @@
 {
+  "name": "sommerlan",
+  "license": "MIT",
+  "version": "1.0",
+  "scripts": {
+    "build": "elm-app build",
+    "start": "elm-app start"
+  },
   "dependencies": {
     "create-elm-app": "^1.10.3"
+  },
+  "devDependencies": {
+    "elm-format": "^0.7.0-exp"
   }
 }

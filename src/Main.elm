@@ -1,7 +1,7 @@
 module Main exposing (..)
 
-import Html exposing (Html, text, div, h1, img)
-import Html.Attributes exposing (src)
+import Html exposing (Html, a, div, h1, img, li, text, ul)
+import Html.Attributes exposing (href, src)
 
 
 ---- MODEL ----
@@ -37,7 +37,11 @@ view : Model -> Html Msg
 view model =
     div []
         [ img [ src "/logo.svg" ] []
-        , h1 [] [ text "Your Elm App is working!" ]
+        , h1 [] [ text "SommerLAN 2018!" ]
+        , ul []
+            [ li [] [ a [ href "https://twitter.com/sommerlanassss" ] [ text "twittern" ] ]
+            , li [] [ a [ href "https://instagram.com/sommerlanassss" ] [ text "instagræm" ] ]
+            ]
         ]
 
 
