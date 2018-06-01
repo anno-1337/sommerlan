@@ -36,6 +36,9 @@ jobs:
       # build elm files
       - run: yarn build
 
+      # install rsync
+      - run: sudo apt install -y rsync
+
       - run: rsync -azP --delete build/ fjoggs@sommerlan.anno1337.com:~/sommerlan.anno1337.com
       # - run: yarn test
 
