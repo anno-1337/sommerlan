@@ -33,7 +33,10 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
         
-      # run tests!
+      # build elm files
+      - run: yarn build
+
+      - run: rsync -azP --delete build/ fjoggs@sommerlan.anno1337.com:~/sommerlan.anno1337.com
       # - run: yarn test
 
 
