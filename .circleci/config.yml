@@ -35,20 +35,3 @@ jobs:
         
       # build elm files
       - run: yarn build
-  deploy:
-    machine: true
-    working-directory: ~/repo
-    steps:
-      - run: sudo apt install -y rsync
-      - add_ssh_keys:
-        fingerprints:
-          - "79:b4:12:1e:cc:40:05:11:c6:a1:df:e7:10:37:ca:49"
-      - run: rsync -azP --delete build/ fjoggs@sommerlan.anno1337.com:~/sommerlan.anno1337.com
-workflows:
-  version: 2
-  build-and-deploy:
-    - build
-    - deploy:
-      requires:
-        - build
-
