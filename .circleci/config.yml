@@ -34,9 +34,13 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # build elm files
+      - run: mkdir -p build
+      - run: cd build
       - run: yarn build
       - persist_to_workspace:
-          root: .
+          root: build
+          paths:
+           - .
   deploy:
     machine: true
     steps:
@@ -44,7 +48,7 @@ jobs:
           fingerprints:
             - "79:b4:12:1e:cc:40:05:11:c6:a1:df:e7:10:37:ca:49"
       - attach_workspace:
-          at: ~/repo
+          at: ~/tmp/repo
       - run: sudo apt install -y rsync
       - run: rsync -azP --delete build/ fjoggs@sommerlan.anno1337.com:~/sommerlan.anno1337.com
 workflows:
