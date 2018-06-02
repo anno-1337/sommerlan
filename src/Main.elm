@@ -41,6 +41,7 @@ view model =
         , ul []
             [ li [] [ a [ href "https://twitter.com/sommerlanassss" ] [ text "twittern" ] ]
             , li [] [ a [ href "https://instagram.com/sommerlanassss" ] [ text "instagræm" ] ]
+            , li [] [ a [ href "https://test" ] [ text "deploy test" ] ]
             ]
         ]
 
