@@ -2,18 +2,19 @@ module Main exposing (..)
 
 import Html exposing (Html, a, div, h1, h2, h3, img, li, text, ul)
 import Html.Attributes exposing (href, src)
+import WebSocket
 
 
 ---- MODEL ----
 
 
 type alias Model =
-    {}
+    { games : List String }
 
 
 init : ( Model, Cmd Msg )
 init =
-    ( {}, Cmd.none )
+    ( Model [], Cmd.none )
 
 
 
@@ -21,12 +22,28 @@ init =
 
 
 type Msg
-    = NoOp
+    = NewGame String
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
-update msg model =
-    ( model, Cmd.none )
+update msg { games } =
+    case msg of
+        NewGame string ->
+            ( Model (string :: games), Cmd.none )
+
+
+
+---- SUBSCRIPTIONS ----
+
+
+echoServer : String
+echoServer =
+    "ws://localhost:8887"
+
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    WebSocket.listen echoServer NewGame
 
 
 
@@ -73,8 +90,13 @@ view model =
             ]
         , h2 [] [ text "HÅTTE GAMES" ]
         , ul []
-            [ li [] [ text "Coming Soon" ] ]
+            [ li [] (List.map viewMessage model.games) ]
         ]
+
+
+viewMessage : String -> Html Msg
+viewMessage msg =
+    div [] [ text msg ]
 
 
 
@@ -87,5 +109,5 @@ main =
         { view = view
         , init = init
         , update = update
-        , subscriptions = always Sub.none
+        , subscriptions = subscriptions
         }
