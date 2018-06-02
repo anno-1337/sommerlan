@@ -40,7 +40,7 @@ view model =
         , h2 [] [ text "Soziale medier" ]
         , ul []
             [ li [] [ a [ href "https://twitter.com/sommerlanassss" ] [ text "twittern" ] ] ]
-        , h2 [] [ text "Can's shopping list" ]
+        , h2 [] [ text "NWBI's shopping list" ]
         , ul []
             [ li [] [ a [ href "https://www.komplett.no/product/993767/datautstyr/pc-komponenter/prosessorer/amd-ryzen-7-2700x-prosessor" ] [ text "CPU - Ryzen 7 2700X  (3.290kr)" ] ]
             , li [] [ a [ href "https://www.komplett.no/product/1004669/datautstyr/pc-komponenter/hovedkort/amd-socket/msi-x470-gaming-plus" ] [ text "Hovedkort - MSI X470 Gaming plus (1.499kr)" ] ]
